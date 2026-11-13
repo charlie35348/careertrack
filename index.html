@@ -1,0 +1,64 @@
+<html>
+    <head> <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Career Track</title>
+     </head>
+
+<body>
+    <h1> Welcome back Charlie to Career Track</h1>
+    <p>CareerTrack is a platform that helps users organise and monitor their job applications, interviews, and career 
+        opportunities in one place. It allows users to track application progress and manage their job search more 
+        effectively.</p>
+    <h2>Dashboard of applications status</h2>
+    <ol>
+        <li>Applied</li>
+        <li>Interview </li>
+        <li>Offer</li>
+        <li>Rejected</li>
+    </ol>
+    <h2>Add New Application</h2>
+    <form>
+        <label for="company">Company Name:</label>
+        <input type="text" id="company" name="company"><br><br>
+        <label for="jobRole">Job Role:</label>
+        <input type="text" id="jobRole" name="jobRole"><br><br>
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary"><br><br>
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+        </select><br><br>
+        <button type="submit">Add Application</button>
+    </form>
+    <h2>My Applications</h2>
+    <table border="1">
+        <tr>
+            <th>Company</th>
+            <th>Job Role</th>
+            <th>Salary</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Google</td>
+            <td>Software Engineer</td>
+            <td>$120,000</td>
+            <td>Applied</td>
+        </tr>
+        <tr>
+            <td>Amazon</td>
+            <td>Data Scientist</td>
+            <td>$110,000</td>
+            <td>Interview</td>
+        </tr>
+        <tr>
+            <td>Facebook</td>
+            <td>Product Manager</td>
+            <td>$130,000</td>
+            <td>Offer</td>
+            </tr>
+        </table>
+</body>
+</html>
