@@ -13,7 +13,7 @@
         effectively.</p><br><br>
     <h2 class="mini-box">Dashboard of applications status</h2>
     
-<div class="dashboard-cards">
+<section class="dashboard-cards">
     <div class="card">
         <h3>📄 Applied</h3>
         <p>12</p>
@@ -23,31 +23,36 @@
         <p>5</p>
     </div>
     <div class="card">
-        <h3>✅ Offer</h3>
-        <p>2</p>
-    </div>
-    <div class="card">
         <h3>❌ Rejected</h3>
         <p>7</p>
     </div>
-</div>
+     <div class="card">
+        <h3>✅ Offer</h3>
+        <p>2</p>
+    </div>
+</section><br>
     <h3 class="mini-box" align="center">Add New Application</h3>
-    <form align="center" class="form-box">
-        <label type="text" for="company">Company Name:</label>
-        <input type="text" id="company" name="company"><br><br>
-        <label for="jobRole">Job Role:</label>
-        <input type="text" id="jobRole" name="jobRole"><br><br>
-        <label for="salary">Salary:</label>
-        <input type="number" id="salary" name="salary"><br><br>
-        <label for="status">Status:</label>
+    <fieldset class="form-box" align="center">
+        <label type="text" for="company">Company Name (🏢):</label>
+        <input type="text" id="company" name="company" placeholder="e.g. Microsoft"  required><br><br>
+        <label for="jobRole">Job Role (💼):</label>
+        <input type="text" id="jobRole" name="jobRole" placeholder="e.g. Software Engineer" required><br><br>
+        <label for="salary">Annual Salary(£):</label>
+        <input type="number" id="salary" name="salary" min="0" max="1000000" placeholder="e.g. 50000"><br><br>
+        <label type="text" for="location">Location (📍):</label>
+        <input type="text" id="location" name="location" placeholder="e.g. London" required><br><br>
+        <label type="url" for="jobLink">Job Vacancy URL (🔗):</label>
+        <input type="url" id="jobLink" name="jobLink" placeholder="e.g. https://www.example.com/job" required><br><br>
+        <label type="date" for="dateApplied">Date Applied (📅):</label>
+        <input type="date" id="dateApplied" name="dateApplied" required><br><br>
+        <label for="status">Status (📊):</label>
         <select id="status" name="status">
             <option value="Applied">Applied</option>
             <option value="Interview">Interview</option>
             <option value="Offer">Offer</option>
             <option value="Rejected">Rejected</option>
         </select><br><br>
-        <button type="submit">Add Application</button>
-    </form>
+        <button type="submit">Add Application</button></fieldset>
     <h3 class="mini-box">My Applications</h3>
     <table border="1">
         <tr>
