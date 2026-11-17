@@ -99,6 +99,12 @@ th {
     font-weight: bold;
     text-align: center;
 }
+.rejected {
+    background-color: #EF4444;
+    color: #1D4ED8; 
+    font-weight: bold;
+    text-align: center;
+}
 .offer {
     background-color: #10B981;
     color: #1D4ED8; 

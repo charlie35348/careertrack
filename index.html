@@ -2,7 +2,7 @@
 <html lang="en">
     <head> <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
         <title>Career Track</title>
      </head>
 
@@ -31,7 +31,7 @@
         <p>2</p>
     </div>
 </section><br>
-    <h3 class="mini-box" align="center">Add New Application</h3>
+    <h3 class="mini-box" align="center">Add New Application</h3><form id="applicationform">
     <fieldset class="form-box" align="center">
         <label type="text" for="company">Company Name (🏢):</label>
         <input type="text" id="company" name="company" placeholder="e.g. Microsoft"  required><br><br>
@@ -42,7 +42,7 @@
         <label type="text" for="location">Location (📍):</label>
         <input type="text" id="location" name="location" placeholder="e.g. London" required><br><br>
         <label type="url" for="jobLink">Job Vacancy URL (🔗):</label>
-        <input type="url" id="jobLink" name="jobLink" placeholder="e.g. https://www.example.com/job" required><br><br>
+        <input type="url" id="jobLink" name="jobLink" placeholder="e.g. https://www.example.com/job"><br><br>
         <label type="date" for="dateApplied">Date Applied (📅):</label>
         <input type="date" id="dateApplied" name="dateApplied" required><br><br>
         <label for="status">Status (📊):</label>
@@ -52,16 +52,17 @@
             <option value="Offer">Offer</option>
             <option value="Rejected">Rejected</option>
         </select><br><br>
-        <button type="submit">Add Application</button></fieldset>
+        <button type="submit">Add Application</button></fieldset></form>
     <h3 class="mini-box">My Applications</h3>
-    <table border="1">
+    <table border="1"><thead>
         <tr>
             <th>Company</th>
             <th>Job Role</th>
             <th>Salary</th>
             <th>Status</th>
-        </tr>
-        <tr>
+        </tr></thead>
+
+       <tbody id="applicationtable"><tr>
             <td>Google</td>
             <td>Software Engineer</td>
             <td>$120,000</td>
@@ -78,7 +79,7 @@
             <td>Product Manager</td>
             <td>$130,000</td>
             <td class="offer">Offer</td>
-            </tr>
+            </tr></tbody>
         </table>
 </body>
 </html>
