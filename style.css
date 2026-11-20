@@ -159,3 +159,20 @@ fieldset{
         max-width: 90%;
     }
 }
+
+.edit-button {
+    background-color: #aceb25;
+    color: white;
+}
+
+.delete-button {
+    background-color: #DC2626;
+    color: white;
+}
+.edit-button:hover {
+    background-color: #1d9dd8;
+}
+
+.delete-button:hover {
+    background-color: #5d0303;
+}

@@ -4,7 +4,7 @@ const jobrole=document.querySelector('#jobRole');
 const salary=document.querySelector('#salary');
 const status=document.querySelector('#status');
 const applicationtable=document.querySelector('#applicationtable');
-const applications = [
+let applications = [
     {
         id: 1,
         company: "Google",
@@ -35,7 +35,7 @@ const applications = [
     }
 ];
 
-function renderApplicateion()
+function renderApplication()
 {
     applicationtable.replaceChildren()
     for(const application of applications){
@@ -77,16 +77,33 @@ function renderApplicateion()
             statuscell.classList.add('applied')
         }
         row.appendChild(statuscell);
+        const actioncell= document.createElement('td')
+
+        const editButton = document.createElement("button");
+        editButton.textContent="Edit";
+        editButton.addEventListener('click',function(){editrow(application.id);});
+
+        const deleteButton=document.createElement("button");
+        deleteButton.textContent="Delete";
+        deleteButton.addEventListener('click',function(){deleterow(application.id);});
+
+       
+
+        editButton.classList.add('edit-button');
+        deleteButton.classList.add('delete-button')
+        actioncell.appendChild(editButton);
+        actioncell.appendChild(deleteButton);
+        row.appendChild(actioncell)
+
+
         applicationtable.appendChild(row);
 
-      
-    
+         
     }
     
 }
 
-renderApplicateion();
-
+renderApplication();
 
 form.addEventListener('submit',function(event){
     event.preventDefault();
@@ -100,7 +117,7 @@ form.addEventListener('submit',function(event){
 
 
     applications.push(newApplication);
-    renderApplicateion();
+    renderApplication();
 
     updatedashboard();
     form.reset();
@@ -123,3 +140,25 @@ function updatedashboard()
 }
 
 
+function deleterow(id)
+{
+    const confirmed=confirm("Are you sure you wanna delete this application?")
+    if(!confirmed){
+        return;
+    }
+     applications=applications.filter(a=>a.id!==id);
+    renderApplication();
+    updatedashboard();
+}
+
+function editrow(id)
+{
+    const application=applications.find(a=>a.id==id);
+    if(!application)return;;
+    const newstat = prompt("Enter your latest application status:",application.status);
+    if(newstat===null) return;
+    application.status=newstat;
+    renderApplication();
+    updatedashboard();
+
+}   
