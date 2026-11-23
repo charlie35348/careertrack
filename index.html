@@ -54,6 +54,21 @@
         </select><br><br>
         <button type="submit">Add Application</button></fieldset></form>
     <h3 class="mini-box">My Applications</h3>
+    <div class="search-box"><input id="searchinput" type="text" placeholder="Search by company name or job role "><br>
+    </div><br>
+    <div><select id="statfilter">
+        <option value="All">All Applications</option>
+        <option value="Interview">Interview</option>
+        <option value="Offer">Offer</option>
+        <option value="Applied">Applied</option>
+        <option value="Rejected">Rejected</option>
+    </select> </div><br>
+    <div><select id="sortBy">
+    <option value="default">Default Order</option>
+    <option value="salaryHigh">Salary: High to Low</option>
+    <option value="salaryLow">Salary: Low to High</option>
+    <option value="companyAZ">Company: A to Z</option>
+</select> </div><br>
     <table border="1"><thead>
         <tr>
             <th>Company</th>
@@ -64,23 +79,7 @@
         </tr></thead>
 
        <tbody id="applicationtable"><tr>
-            <td>Google</td>
-            <td>Software Engineer</td>
-            <td>£120,000</td>
-            <td class="applied">Applied</td>
-        </tr>
-        <tr>
-            <td>Amazon</td>
-            <td>Data Scientist</td>
-            <td>£110,000</td>
-            <td class="interview">Interview</td>
-        </tr>
-        <tr>
-            <td>Facebook</td>
-            <td>Product Manager</td>
-            <td>£130,000</td>
-            <td class="offer">Offer</td>
-            </tr></tbody>
+           </tbody>
         </table>
 </body>
 </html>

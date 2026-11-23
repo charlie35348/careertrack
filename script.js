@@ -35,10 +35,10 @@ let applications = [
     }
 ];
 
-function renderApplication()
+function renderApplication(applicationlist = applications)
 {
     applicationtable.replaceChildren()
-    for(const application of applications){
+    for(const application of applicationlist){
         const row = document.createElement("tr");
 
         const companycell=document.createElement("td");
@@ -162,3 +162,40 @@ function editrow(id)
     updatedashboard();
 
 }   
+
+const sinput = document.querySelector("#searchinput")
+const statfilter=document.querySelector("#statfilter")
+const sorti=document.querySelector("#sortBy")
+
+sinput.addEventListener('input',applyfilters)
+statfilter.addEventListener('change',applyfilters)
+sorti.addEventListener("change",applyfilters)
+
+function applyfilters(){
+    const st = sinput.value.toLowerCase();
+    const fst=statfilter.value;
+
+    const filteredoutput=applications.filter(a=>{
+        const matchedinput=
+        a.company.toLowerCase().includes(st) || a.jobRole.toLowerCase().includes(st)
+
+        const matchedstatus=
+        fst=== "All" ||
+        a.status===fst;
+
+        return matchedinput && matchedstatus
+
+        
+        })
+        if (sorti.value==="salaryHigh"){
+            filteredoutput.sort((a,b) => b.salary-a.salary);
+        }
+        else if (sorti.value==="salaryLow"){
+            filteredoutput.sort((a,b) => a.salary-b.salary);
+        }
+        else if (sorti.value==="companyAZ"){
+            filteredoutput.sort((a,b)=> a.company.localeCompare(b.company))
+
+    }
+    renderApplication(filteredoutput);
+};
