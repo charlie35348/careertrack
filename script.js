@@ -4,7 +4,16 @@ const jobrole=document.querySelector('#jobRole');
 const salary=document.querySelector('#salary');
 const status=document.querySelector('#status');
 const applicationtable=document.querySelector('#applicationtable');
-let applications = [
+
+const savedapplication = localStorage.getItem("careertrackapplications")
+
+let applications;
+if(savedapplication){
+    applications=JSON.parse(savedapplication);
+}
+else{
+    applications=[
+
     {
         id: 1,
         company: "Google",
@@ -32,8 +41,9 @@ let applications = [
         jobRole: "Data Engineer",
         salary: 43000,
         status: "Offer"
-    }
-];
+    }]
+    saveapplication();
+}
 
 function renderApplication(applicationlist = applications)
 {
@@ -117,6 +127,7 @@ form.addEventListener('submit',function(event){
 
 
     applications.push(newApplication);
+    saveapplication();
     renderApplication();
 
     updatedashboard();
@@ -147,6 +158,7 @@ function deleterow(id)
         return;
     }
      applications=applications.filter(a=>a.id!==id);
+     saveapplication();
     renderApplication();
     updatedashboard();
 }
@@ -158,6 +170,7 @@ function editrow(id)
     const newstat = prompt("Enter your latest application status:",application.status);
     if(newstat===null) return;
     application.status=newstat;
+    saveapplication();
     renderApplication();
     updatedashboard();
 
@@ -199,3 +212,7 @@ function applyfilters(){
     }
     renderApplication(filteredoutput);
 };
+
+function saveapplication(){
+    localStorage.setItem("careertrackapplications",JSON.stringify(applications));
+}
